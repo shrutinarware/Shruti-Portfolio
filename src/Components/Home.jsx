@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Profile from "../Assests/Profile/Photo.jpeg"
 import useResponsive from "../hooks/useResponsive";
 
 export default function Home() {
-    const { isMobile, isTablet } = useResponsive();
+    const { isMobile  } = useResponsive();
 
     // Inject small keyframe animations for floating icons
     useEffect(() => {

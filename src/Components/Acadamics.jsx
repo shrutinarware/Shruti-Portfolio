@@ -28,7 +28,7 @@ const Academics = () => {
             gap: "8px",
             alignSelf: "flex-start",
             whiteSpace: isMobile ? "normal" : "nowrap",
-            alignSelf: "flex-start",
+           
         },
 
         highlight: {

@@ -10,7 +10,6 @@ import Bootcamp1 from "../Assests/Images/Bootcamp1.png";
 import Bootcamp2 from "../Assests/Images/Bootcamp2.png";
 import TCS1 from "../Assests/Images/TCS1.png";
 import Eduversity from "../Assests/Images/Eduversity.png";
-import { type } from "@testing-library/user-event/dist/type";
 
 const certificates = [
     {

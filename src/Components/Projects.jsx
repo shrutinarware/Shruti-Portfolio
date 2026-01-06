@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { SiReact, SiFirebase, SiJavascript, SiCss3 } from "react-icons/si";
 
 const projects = [
@@ -38,8 +38,7 @@ export default function Projects() {
     const navigate = useNavigate();
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-    const [hoveredIndex, setHoveredIndex] = useState(null);
-    const [activeIndex, setActiveIndex] = useState(null);
+
 
     React.useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -206,18 +205,16 @@ export default function Projects() {
                                     >
                                         <FaGithub /> Code
                                     </a>
-                                    <a href="#"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        style={styles.btn}
+                                    <button
                                         onClick={(e) => {
                                             e.preventDefault();
-                                            e.stopPropagation();
                                             navigate(p.route);
-                                        }}>
+                                        }}
+                                        style={styles.btn}
+                                    >
                                         Case study
+                                    </button>
 
-                                    </a>
                                 </div>
                             </motion.div>
                         );
