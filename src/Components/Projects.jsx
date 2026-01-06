@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
@@ -9,19 +9,16 @@ const projects = [
     {
         title: "Glowthic – Beauty E-commerce Website & App",
         desc: `Glowthic is a full-featured beauty e-commerce platform built using React.js.
-It allows users to explore products, view detailed descriptions, manage carts,
-and experience a smooth, responsive shopping journey across devices.`,
+It allows users to explore products, manage carts, and enjoy a smooth shopping experience.`,
         tech: ["React", "Firebase", "JavaScript", "CSS"],
-        live: "https://glowthic.vercel.app",
         github: "https://github.com/shrutinarware/glowthic_ecommerce_website.git",
         route: "/projects/glowthic",
     },
     {
         title: "Landing Page / Portfolio Website",
-        desc: `A modern and responsive landing page developed using React.js to showcase
-projects, skills, achievements, and professional experience.`,
+        desc: `A modern and responsive portfolio website built with React.js
+to showcase skills, projects, and experience.`,
         tech: ["React", "JavaScript", "CSS"],
-        live: "https://shrutinarware.vercel.app",
         github: "https://github.com/shrutinarware/Landing-Page.git",
         route: "/projects/portfolio",
     },
@@ -38,9 +35,7 @@ export default function Projects() {
     const navigate = useNavigate();
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-
-
-    React.useEffect(() => {
+    useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth <= 768);
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
@@ -48,64 +43,53 @@ export default function Projects() {
 
     const styles = {
         section: {
-            padding: isMobile ? "2.5rem 1rem" : "4rem 1rem",
-            background: "transparent",
-            color: "#cbd5e1",
+            padding: isMobile ? "2.5rem 1rem" : "4rem 2rem",
             width: "100%",
+        },
+        container: {
+            maxWidth: 1200,
+            margin: "0 auto",
         },
         heading: {
             fontSize: isMobile ? "1.9rem" : "2.4rem",
-            fontWeight: "800",
-            marginBottom: "1rem",
+            fontWeight: 800,
+            marginBottom: "2rem",
             color: "#fff",
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "8px",
-            whiteSpace: isMobile ? "normal" : "nowrap",
         },
-
         highlight: { color: "#f7c948" },
         grid: {
             display: "grid",
             gridTemplateColumns: isMobile
                 ? "1fr"
                 : "repeat(auto-fit, minmax(300px, 1fr))",
-            gap: isMobile ? "1.4rem" : "2rem",
+            gap: "2rem",
         },
         card: {
             background: "radial-gradient(circle at top left, #0e1b2e, #070c18 70%)",
             borderRadius: 16,
-            padding: isMobile ? "1.2rem" : "1.4rem",
+            padding: "1.4rem",
+            border: "1px solid rgba(247,201,72,0.25)",
             display: "flex",
             flexDirection: "column",
-            minHeight: isMobile ? "auto" : 280,
-            cursor: "pointer",
-            transition: "all 0.3s ease",
         },
         title: {
-            fontSize: isMobile ? "1.35rem" : "1.6rem",
+            fontSize: "1.4rem",
             fontWeight: 800,
             color: "#fff",
-            marginBottom: "0.5rem",
-            position: "relative",
-            display: "inline-block",
+            marginBottom: "0.6rem",
         },
-
         desc: {
-            fontSize: isMobile ? "0.85rem" : "0.9rem",
+            fontSize: "0.9rem",
             color: "#94a3b8",
             lineHeight: 1.6,
             marginBottom: "1rem",
         },
-
-
         techRow: {
             display: "flex",
-            gap: "0.45rem",
+            gap: "0.5rem",
             flexWrap: "wrap",
             marginBottom: "1rem",
         },
-
         tech: {
             display: "flex",
             alignItems: "center",
@@ -114,112 +98,70 @@ export default function Projects() {
             borderRadius: 999,
             background: "rgba(255,255,255,0.08)",
             fontSize: "0.75rem",
-            fontWeight: 600,
             color: "#fff",
         },
-
         actions: {
             display: "flex",
             gap: "0.6rem",
             marginTop: "auto",
-            flexWrap: "wrap",
         },
-
         btn: {
-            display: "flex",
-            alignItems: "center",
-            gap: 6,
-            padding: "0.55rem 0.9rem",
+            padding: "0.6rem 1rem",
             borderRadius: 8,
             fontWeight: 700,
-            fontSize: "0.85rem",
+            background: "#f7c948",
+            color: "#071428",
+            border: "none",
+            cursor: "pointer",
             textDecoration: "none",
-            background:
-                "linear-gradient(90deg, #716545ff 0%, #0b1220 50%, #383837 100%)",
-            border: "2px solid #f7c948",
-            color: "#fff",
-            boxShadow: "0 0 14px rgba(247,201,72,0.6)",
         },
     };
 
     return (
-        <section style={styles.section} id="projects">
-            <div className="container">
+        <section id="projects" style={styles.section}>
+            <div style={styles.container}>
                 <h2 style={styles.heading}>
                     My <span style={styles.highlight}>Projects</span>
                 </h2>
 
-                <motion.div style={styles.grid}>
-                    {projects.map((p, i) => {
-                        const isActive = activeIndex === i;
-                        const isHovered = hoveredIndex === i;
+                <div style={styles.grid}>
+                    {projects.map((p, i) => (
+                        <motion.div
+                            key={i}
+                            style={styles.card}
+                            whileHover={{ y: -6 }}
+                        >
+                            <h3 style={styles.title}>{p.title}</h3>
+                            <p style={styles.desc}>{p.desc}</p>
 
-                        return (
-                            <motion.div
-                                key={i}
-                                style={{
-                                    ...styles.card,
-                                    border: isActive
-                                        ? "2px solid #f7c948"
-                                        : "1px solid rgba(247,201,72,0.18)",
-                                }}
-                                whileHover={{
-                                    y: -8,
-                                    boxShadow: "0 18px 45px rgba(247,201,72,0.25)",
-                                }}
+                            <div style={styles.techRow}>
+                                {p.tech.map((t, idx) => (
+                                    <span key={idx} style={styles.tech}>
+                                        {techIcons[t]} {t}
+                                    </span>
+                                ))}
+                            </div>
 
-                            >
-                                {/* TITLE */}
-                                <h3
-                                    style={{
-                                        ...styles.title,
-
-                                    }}
-                                    onMouseEnter={() => setHoveredIndex(i)}
-                                    onMouseLeave={() => setHoveredIndex(null)}
+                            <div style={styles.actions}>
+                                <a
+                                    href={p.github}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    style={styles.btn}
                                 >
-                                    {p.title}
+                                    <FaGithub /> Code
+                                </a>
 
-
-                                </h3>
-
-                                <p style={styles.desc}>{p.desc}</p>
-
-                                <div style={styles.techRow}>
-                                    {p.tech.map((t, idx) => (
-                                        <span key={idx} style={styles.tech}>
-                                            {techIcons[t]} {t}
-                                        </span>
-                                    ))}
-                                </div>
-
-                                <div style={styles.actions}>
-
-
-                                    <a
-                                        href={p.github}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        style={styles.btn}
-                                        onClick={(e) => e.stopPropagation()}
-                                    >
-                                        <FaGithub /> Code
-                                    </a>
-                                    <button
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            navigate(p.route);
-                                        }}
-                                        style={styles.btn}
-                                    >
-                                        Case study
-                                    </button>
-
-                                </div>
-                            </motion.div>
-                        );
-                    })}
-                </motion.div>
+                                <button
+                                    style={styles.btn}
+                                    onClick={() => navigate(p.route)}
+                                >
+                                    Case Study
+                                </button>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
             </div>
         </section>
     );
