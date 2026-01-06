@@ -1,0 +1,33 @@
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  background-color: #071428;
+  color: #cbd5e1;
+  min-height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.app-wrapper {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* PURE SITE EK STRAIGHT LINE */
+.page-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
