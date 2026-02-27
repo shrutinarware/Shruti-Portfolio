@@ -148,7 +148,7 @@ const About = () => {
                     </h2>
 
                     <p style={styles.text} className="fade-up fade-delay-1 dot-text">
-                        I am a dedicated <span style={{ color: "#f7c948", fontWeight: "bold" }}>React.js Developer</span> with <span style={{ color: "#f7c948", fontWeight: "bold" }}>1+ year of hands-on experience </span>
+                        I am a dedicated <span style={{ color: "#f7c948", fontWeight: "bold" }}>React.js Developer</span> with <span style={{ color: "#f7c948", fontWeight: "bold" }}>3+ year of hands-on experience </span>
                         in building modern, responsive, and scalable web applications.
                         I specialize in creating clean, interactive user interfaces
                         that deliver smooth and engaging user experiences.

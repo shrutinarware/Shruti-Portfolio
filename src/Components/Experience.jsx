@@ -39,7 +39,7 @@ export default function Experiences() {
             },
         },
         {
-            year: "Apr 2024 – Sep 2024",
+            year: "Apr 2024 – Aug 2025",
             title: "React.js Developer",
             company: "CrystalTech Services Pvt. Ltd., Indore",
             logo: CrystalTech,

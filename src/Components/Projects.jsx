@@ -22,6 +22,14 @@ to showcase skills, projects, and experience.`,
         github: "https://github.com/shrutinarware/Landing-Page.git",
         route: "/projects/portfolio",
     },
+     {
+        title: "Indore Xplore– City Guide Website",
+        desc: `A modern and responsive City Guide website built with React.js
+to showcase skills, projects, and experience.`,
+        tech: ["React", "JavaScript", "CSS","Firebase",],
+        github: "https://github.com/shrutinarware/IndoreXplore.git",
+        route: "/projects/indorexplore",
+    },
 ];
 
 const techIcons = {
